@@ -48,6 +48,31 @@ div.f {
 a {
      text-decoration: none;
     }
+.accordion {
+  background-color: #fff;
+  font-family: sans-serif;
+  color: #000;
+  cursor: pointer;
+  padding: 1px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 0.9em;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #fff; 
+}
+
+.panel {
+  padding: 0px;
+  font-family: sans-serif;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
 </style>
 <article>
 	<body>
@@ -57,8 +82,31 @@ a {
 <br>
 <div class="c"><a href="https://eepurl.com/gn52gL" target="_blank">Subscribe</a></div>
 <div class="d"><a href="https://instagram.com/thenakedreport" target="_blank">Instagram</a></div>
-<div class="e">Επικοινωνία</div>
-<div class="f">Περισσότερα</div>
+<button class="accordion">Επικοινωνία</button>
+<div class="panel">
+  <p>thenakedreport [at] gmail [dot] com</p>
+</div>
+<button class="accordion">Περισσότερα</button>
+<div class="panel">
+  <p>Το The Naked Report είναι ένα πρότζεκτ του Χρήστου Μούχα. Κάθε εβδομάδα, ένα κείμενο  </p>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
 	</body>
 </article>
 
